@@ -6,7 +6,7 @@ data class MovieResp(
 
     @SerializedName("page") var page: Int? = null,
     @SerializedName("results") var results: ArrayList<Results> = arrayListOf(),
-    @SerializedName("total_pages") var totalPages: Int? = null,
+    @SerializedName("total_pages") var totalPages: Int = 0,
     @SerializedName("total_results") var totalResults: Int? = null
 
 ) {
@@ -14,7 +14,7 @@ data class MovieResp(
         @SerializedName("adult") var adult: Boolean? = null,
         @SerializedName("backdrop_path") var backdropPath: String? = null,
         @SerializedName("id") var id: Int? = null,
-        @SerializedName("title") var title: String? = null,
+        @SerializedName("title") var title: String = "",
         @SerializedName("original_language") var originalLanguage: String? = null,
         @SerializedName("original_title") var originalTitle: String? = null,
         @SerializedName("overview") var overview: String? = null,
