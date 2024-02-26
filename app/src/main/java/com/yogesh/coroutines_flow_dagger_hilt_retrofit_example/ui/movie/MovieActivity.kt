@@ -3,6 +3,8 @@ package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +50,7 @@ class MovieActivity : AppCompatActivity() {
     private fun callInitApi() {
 
         movieViewModel.getMovie(page)
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     fun initPagination() {
@@ -70,19 +73,23 @@ class MovieActivity : AppCompatActivity() {
             movieViewModel.movieResp.collect {
                 when (it) {
                     is Resource.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
                         Log.d("Yogesh_Android", "loading")
                     }
 
                     is Resource.Success -> {
-
+                        binding.progressBar.visibility = View.GONE
                         handleSuccess(it.data)
                     }
 
                     is Resource.Failed -> {
-                        Log.d("Yogesh_Android", "failed")
+                        binding.progressBar.visibility = View.GONE
+                        handleFailure(it.message)
                     }
 
-                    else -> {}
+                    else -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
                 }
             }
         }
@@ -92,11 +99,12 @@ class MovieActivity : AppCompatActivity() {
         if (data.totalPages > page) {
             isNextPage = true
         }
-
         movieList.addAll(data.results)
-
         adapter.notifyDataSetChanged()
-//        Log.d("Yogesh_Android", "hao")
+    }
+
+    private fun handleFailure(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun clickEvents() {

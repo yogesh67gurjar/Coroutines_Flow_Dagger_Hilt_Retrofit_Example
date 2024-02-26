@@ -72,12 +72,20 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // A Java serialization/deserialization library to convert Java Objects into JSON and back
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // logging interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
 
     // hilt
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     //coroutines
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
+
+    //circle
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
 }
