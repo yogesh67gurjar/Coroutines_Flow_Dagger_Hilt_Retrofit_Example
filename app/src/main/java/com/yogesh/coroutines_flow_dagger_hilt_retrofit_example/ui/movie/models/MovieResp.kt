@@ -1,4 +1,4 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.models
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models
 
 import com.google.gson.annotations.SerializedName
 

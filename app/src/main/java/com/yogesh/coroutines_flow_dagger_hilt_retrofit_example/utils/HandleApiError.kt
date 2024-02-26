@@ -1,11 +1,8 @@
 package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.utils
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import com.google.gson.GsonBuilder
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.models.CommonErrorResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect.CommonErrorResp
 import okhttp3.ResponseBody
 
 object HandleApiError {

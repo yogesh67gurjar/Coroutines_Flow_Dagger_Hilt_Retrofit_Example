@@ -1,10 +1,10 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.viewModel
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect.Resource
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.models.MovieResp
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.repository.MovieRepository
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models.MovieResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

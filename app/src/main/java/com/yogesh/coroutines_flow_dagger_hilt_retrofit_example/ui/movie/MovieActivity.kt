@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.R
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect.Resource
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.databinding.ActivityMovieBinding
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.models.MovieResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models.MovieResp
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.adapter.MovieAdapter
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.viewModel.MovieViewModel
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.viewModel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -35,7 +35,6 @@ class MovieActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initSetup()
-        clickEvents()
         attachObservers()
         initPagination()
         callInitApi()
@@ -107,7 +106,5 @@ class MovieActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun clickEvents() {
 
-    }
 }

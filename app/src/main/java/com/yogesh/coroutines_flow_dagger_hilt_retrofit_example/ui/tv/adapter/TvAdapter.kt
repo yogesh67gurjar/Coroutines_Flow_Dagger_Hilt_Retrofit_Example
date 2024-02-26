@@ -1,4 +1,4 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.adapter
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.R
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models.MovieResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.models.TvResp
 
-class MovieAdapter(val context: Context, private val movieList: List<MovieResp.Results>) :
-    RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class TvAdapter(val context: Context, private val movieList: List<TvResp.Results>) :
+    RecyclerView.Adapter<TvAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_movie, parent, false)
@@ -26,7 +27,7 @@ class MovieAdapter(val context: Context, private val movieList: List<MovieResp.R
 
         Glide.with(context).load("https://image.tmdb.org/t/p/w500/" + singleUnit.posterPath)
             .into(holder.imageView)
-        holder.textView.text = singleUnit.title
+        holder.textView.text = singleUnit.originalName
     }
 
     override fun getItemCount(): Int {
