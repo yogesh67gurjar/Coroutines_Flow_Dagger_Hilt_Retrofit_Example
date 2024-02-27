@@ -20,16 +20,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    @Named("BASE_URL_TMDB")
-    fun provideBaseUrlTmdb() = MyConstants.BASE_URL_TMDB
-
-    @Provides
-    @Singleton
-    @Named("BASE_URL_TESTING")
-    fun provideBaseUrlTesting() = MyConstants.BASE_URL_JSON_PLACEHOLDER_TYPICODE
-
-    @Provides
-    @Singleton
     fun getInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
@@ -45,6 +35,10 @@ object AppModule {
             .build()
     }
 
+    @Provides
+    @Singleton
+    @Named("BASE_URL_TMDB")
+    fun provideBaseUrlTmdb() = MyConstants.BASE_URL_TMDB
 
     @Provides
     @Singleton
@@ -59,6 +53,19 @@ object AppModule {
 
     @Provides
     @Singleton
+    @Named("TMDB")
+    fun provideApiServiceTmdb(@Named("TMDB") retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    @Named("BASE_URL_TESTING")
+    fun provideBaseUrlTesting() = MyConstants.BASE_URL_JSON_PLACEHOLDER_TYPICODE
+
+
+    @Provides
+    @Singleton
     @Named("TESTING")
     fun provideRetrofitTesting(
         @Named("BASE_URL_TESTING") baseUrl: String,
@@ -66,13 +73,6 @@ object AppModule {
     ): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
-    }
-
-    @Provides
-    @Singleton
-    @Named("TMDB")
-    fun provideApiServiceTmdb(@Named("TMDB") retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
     }
 
     @Provides
