@@ -56,12 +56,10 @@ dependencies {
     implementation("com.intuit.sdp:sdp-android:1.1.0")
     implementation("com.intuit.ssp:ssp-android:1.1.0")
 
-
     // for using lifecyclescope in activity (activity ktx dependency)
     // for injecting viewmodels in activity
     // https://developer.android.com/jetpack/androidx/releases/activity
     implementation("androidx.activity:activity-ktx:1.8.2")
-
 
     // for using lifecyclescope in activity (fragment ktx dependency)
     // for injecting viewmodels in fragment
@@ -75,7 +73,6 @@ dependencies {
     // logging interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
-
     // hilt
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
@@ -84,7 +81,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
 
-    //circle
+    //  images
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")

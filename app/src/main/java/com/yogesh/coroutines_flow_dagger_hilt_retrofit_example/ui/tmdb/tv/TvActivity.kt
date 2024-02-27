@@ -1,4 +1,4 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.R
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect.Resource
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.databinding.ActivityTvBinding
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.adapter.MovieAdapter
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.adapter.TvAdapter
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.models.TvResp
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.viewModel.TvViewModel
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.adapter.MovieAdapter
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv.adapter.TvAdapter
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv.models.TvResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv.viewModel.TvViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class TvActivity : AppCompatActivity() {
     }
 
     private fun attachObservers() {
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.Main) {
             tvViewModel.tvResp.collect {
                 when (it) {
                     is Resource.Loading -> {

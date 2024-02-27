@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/tvBtn"
@@ -17,14 +17,33 @@
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_10sdp">
 
-        <TextView
-
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_8sdp"
-            android:text="Tv"
-            android:textSize="@dimen/_50sdp" />
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="Tv"
+                android:textSize="@dimen/_40sdp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="-> tmdb"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -37,13 +56,72 @@
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_10sdp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_8sdp"
-            android:text="Movie"
-            android:textSize="@dimen/_50sdp" />
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="Movie"
+                android:textSize="@dimen/_40sdp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="-> tmdb"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/getAllPostsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="all posts"
+                android:textSize="@dimen/_40sdp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="-> jpht"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -1,4 +1,4 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.R
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect.Resource
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.databinding.ActivityMovieBinding
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models.MovieResp
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.adapter.MovieAdapter
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.viewModel.MovieViewModel
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.models.MovieResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.adapter.MovieAdapter
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.viewModel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -68,7 +68,7 @@ class MovieActivity : AppCompatActivity() {
     }
 
     private fun attachObservers() {
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.Main) {
             movieViewModel.movieResp.collect {
                 when (it) {
                     is Resource.Loading -> {

@@ -1,4 +1,4 @@
-package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.adapter
+package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.testing.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.R
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.movie.models.MovieResp
-import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tv.models.TvResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.testing.models.PostResp
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.models.MovieResp
 
-class TvAdapter(val context: Context, private val movieList: List<TvResp.Results>) :
-    RecyclerView.Adapter<TvAdapter.ViewHolder>() {
+class PostsAdapter(val context: Context, private val postsList: List<PostResp>) :
+    RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_movie, parent, false)
@@ -23,19 +24,20 @@ class TvAdapter(val context: Context, private val movieList: List<TvResp.Results
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val singleUnit = movieList[position]
+        val singleUnit = postsList[position]
+        holder.card.visibility = View.GONE
 
-        Glide.with(context).load("https://image.tmdb.org/t/p/w500/" + singleUnit.posterPath)
-            .into(holder.imageView)
-        holder.textView.text = singleUnit.originalName
+        holder.textView.text = singleUnit.title
+
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return postsList.size
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val card: CardView = itemView.findViewById(R.id.card)
     }
 }
