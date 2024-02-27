@@ -26,4 +26,21 @@ class TestingRepository @Inject constructor(@Named("TESTING") val apiService: Ap
         }
         emit(Resource.failed(error))
     }.flowOn(Dispatchers.IO)
+
+
+    fun getPostById(id: Int): Flow<Resource<PostResp>> = flow<Resource<PostResp>> {
+        emit(Resource.loading())
+        emit(Resource.success(apiService.getPostbyId(id)))
+    }.catch {
+        var error = when (it) {
+            is HttpException -> {
+                "Failed: ${it.message}"
+            }
+
+            else -> {
+                "Failed: ${it.message}"
+            }
+        }
+        emit(Resource.failed(error))
+    }.flowOn(Dispatchers.IO)
 }

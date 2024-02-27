@@ -15,6 +15,7 @@ import javax.inject.Inject
 class TestingViewModel @Inject constructor(val testingRepository: TestingRepository) : ViewModel() {
 
     var posts: MutableStateFlow<Resource<List<PostResp>>?> = MutableStateFlow(null)
+    var post: MutableStateFlow<Resource<PostResp>?> = MutableStateFlow(null)
 
     fun getPosts() {
         viewModelScope.launch {
@@ -22,5 +23,14 @@ class TestingViewModel @Inject constructor(val testingRepository: TestingReposit
                 posts.value = it
             }
         }
+    }
+
+    fun getPostById(id: Int) {
+        viewModelScope.launch {
+            testingRepository.getPostById(id).collect {
+                post.value = it
+            }
+        }
+
     }
 }

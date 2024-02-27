@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.databinding.ActivityMainBinding
+import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.testing.PostByIdActivity
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.testing.PostsActivity
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.MovieActivity
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv.TvActivity
@@ -28,5 +29,9 @@ class MainActivity : AppCompatActivity() {
         binding.getAllPostsBtn.setOnClickListener {
             startActivity(Intent(this, PostsActivity::class.java))
         }
+        binding.getPostByIdBtn.setOnClickListener {
+            startActivity(Intent(this, PostByIdActivity::class.java))
+        }
+
     }
 }

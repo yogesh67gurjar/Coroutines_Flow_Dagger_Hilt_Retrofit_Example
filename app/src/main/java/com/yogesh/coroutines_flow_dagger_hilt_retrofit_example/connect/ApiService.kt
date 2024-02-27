@@ -3,8 +3,10 @@ package com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.connect
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.testing.models.PostResp
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.movie.models.MovieResp
 import com.yogesh.coroutines_flow_dagger_hilt_retrofit_example.ui.tmdb.tv.models.TvResp
+import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -24,4 +26,9 @@ interface ApiService {
 
     @GET("posts")
     suspend fun getPosts(): List<PostResp>
+
+    @GET("posts/{id}")
+    suspend fun getPostbyId(
+        @Path("id") id: Int
+    ): PostResp
 }
